@@ -1,33 +1,32 @@
-<?php 
+<?php
 session_start();
-
-if (isset($_SESSION['user'])) {
-    header("location: index.php");
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = trim($_POST['name']);
     $password = trim($_POST['password']);
-    
     // Example login validation
     if ($name === 'admin' && $password === 'password123') {
-        $_SESSION['user'] = $name;      
+        $_SESSION['user'] = $name;
     } else {
         $error = "Invalid credentials!";
     }
 }
+if (isset($_SESSION['user'])) {
+    header("location: index.php");
+    exit();
+}
 ?>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+
 <body>
     <p>Du är inte inloggad</p>
-    
+
     <?php if (isset($error)): ?>
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
@@ -38,4 +37,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="submit" value="Log In">
     </form>
 </body>
+
 </html>
