@@ -1,4 +1,6 @@
 <?php
+require_once "user.php";
+
 class Users
 {
     private $users = ["Tom" => "Password231", "Berry" => "Berry", "Garry" => "jkX24I!"];
@@ -7,8 +9,7 @@ class Users
     {
         if (array_key_exists($username, $this->users)) {
             if ($this->users[$username] == $password) {
-                echo $this->users[$username];
-                return $this->users[$username];
+                return new User($username, $password);
             }
         }
         return null;

@@ -1,9 +1,10 @@
 <?php
-class Admin
+require_once "user.php";
+class Admin extends User
 {
-    public function contemplation()
+    public function __construct()
     {
-        return "<p>Hmmmnnd</p>";
+
     }
 }
 ?>
