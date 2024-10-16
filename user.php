@@ -1,10 +1,16 @@
 <?php
 require_once "users.php";
-class User extends Users
+abstract class User extends Users
 {
-    public function contemplation()
-    {
-        return "<p>Hmmmnnd</p>";
+    public string $username;
+    private string $password;
+
+    public function __construct(string $username, string $password){
+
     }
+    public function getUsername(){
+         
+    }
+    
 }
 ?>
